@@ -7,19 +7,6 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -60,9 +47,18 @@
             this.button_BrowseXML = new System.Windows.Forms.Button();
             this.textBox_FolderXML = new System.Windows.Forms.TextBox();
             this.groupBox_RenamePDF = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.button_Rename = new System.Windows.Forms.Button();
+            this.button_OpenRename = new System.Windows.Forms.Button();
+            this.label_RenameFiles = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox_Rename = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button_BrowseRename = new System.Windows.Forms.Button();
+            this.textBox_FolderRename = new System.Windows.Forms.TextBox();
             this.liênHệToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.button_FolderRename = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.contextMenuTools.SuspendLayout();
             this.contextMenuHelp.SuspendLayout();
             this.groupBox_XML.SuspendLayout();
@@ -126,13 +122,13 @@
             this.contextMenuHelp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinToolStripMenuItem});
             this.contextMenuHelp.Name = "contextMenuHelp";
-            this.contextMenuHelp.Size = new System.Drawing.Size(127, 26);
+            this.contextMenuHelp.Size = new System.Drawing.Size(126, 26);
             this.contextMenuHelp.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuHelp_ItemClicked);
             // 
             // thôngTinToolStripMenuItem
             // 
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.thôngTinToolStripMenuItem.Text = "Thông tin";
             // 
             // groupBox_XML
@@ -382,23 +378,96 @@
             // 
             // groupBox_RenamePDF
             // 
-            this.groupBox_RenamePDF.Controls.Add(this.label3);
+            this.groupBox_RenamePDF.Controls.Add(this.groupBox3);
+            this.groupBox_RenamePDF.Controls.Add(this.button_FolderRename);
+            this.groupBox_RenamePDF.Controls.Add(this.button_Rename);
+            this.groupBox_RenamePDF.Controls.Add(this.button_OpenRename);
+            this.groupBox_RenamePDF.Controls.Add(this.label_RenameFiles);
+            this.groupBox_RenamePDF.Controls.Add(this.label4);
+            this.groupBox_RenamePDF.Controls.Add(this.comboBox_Rename);
+            this.groupBox_RenamePDF.Controls.Add(this.label5);
+            this.groupBox_RenamePDF.Controls.Add(this.button_BrowseRename);
+            this.groupBox_RenamePDF.Controls.Add(this.textBox_FolderRename);
             this.groupBox_RenamePDF.Location = new System.Drawing.Point(10, 39);
             this.groupBox_RenamePDF.Name = "groupBox_RenamePDF";
             this.groupBox_RenamePDF.Size = new System.Drawing.Size(439, 223);
             this.groupBox_RenamePDF.TabIndex = 4;
             this.groupBox_RenamePDF.TabStop = false;
-            this.groupBox_RenamePDF.Text = "Đổi Tên PDF";
+            this.groupBox_RenamePDF.Text = "Đổi Tên File";
             this.groupBox_RenamePDF.Visible = false;
             // 
-            // label3
+            // button_Rename
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(203, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Chưa có làm :D";
+            this.button_Rename.Location = new System.Drawing.Point(355, 94);
+            this.button_Rename.Name = "button_Rename";
+            this.button_Rename.Size = new System.Drawing.Size(75, 59);
+            this.button_Rename.TabIndex = 14;
+            this.button_Rename.Text = "Rename";
+            this.button_Rename.UseVisualStyleBackColor = true;
+            this.button_Rename.Click += new System.EventHandler(this.button_Rename_Click);
+            // 
+            // button_OpenRename
+            // 
+            this.button_OpenRename.Location = new System.Drawing.Point(356, 54);
+            this.button_OpenRename.Name = "button_OpenRename";
+            this.button_OpenRename.Size = new System.Drawing.Size(75, 31);
+            this.button_OpenRename.TabIndex = 13;
+            this.button_OpenRename.Text = "Open";
+            this.button_OpenRename.UseVisualStyleBackColor = true;
+            this.button_OpenRename.Click += new System.EventHandler(this.button_OpenRename_Click);
+            // 
+            // label_RenameFiles
+            // 
+            this.label_RenameFiles.AutoSize = true;
+            this.label_RenameFiles.Location = new System.Drawing.Point(52, 63);
+            this.label_RenameFiles.Name = "label_RenameFiles";
+            this.label_RenameFiles.Size = new System.Drawing.Size(79, 13);
+            this.label_RenameFiles.TabIndex = 12;
+            this.label_RenameFiles.Text = "0 XML / 0 PDF";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 63);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Found:";
+            // 
+            // comboBox_Rename
+            // 
+            this.comboBox_Rename.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Rename.FormattingEnabled = true;
+            this.comboBox_Rename.Location = new System.Drawing.Point(162, 60);
+            this.comboBox_Rename.Name = "comboBox_Rename";
+            this.comboBox_Rename.Size = new System.Drawing.Size(188, 21);
+            this.comboBox_Rename.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Folder XML";
+            // 
+            // button_BrowseRename
+            // 
+            this.button_BrowseRename.Location = new System.Drawing.Point(356, 13);
+            this.button_BrowseRename.Name = "button_BrowseRename";
+            this.button_BrowseRename.Size = new System.Drawing.Size(75, 37);
+            this.button_BrowseRename.TabIndex = 8;
+            this.button_BrowseRename.Text = "Browse";
+            this.button_BrowseRename.UseVisualStyleBackColor = true;
+            this.button_BrowseRename.Click += new System.EventHandler(this.button_BrowseRename_Click);
+            // 
+            // textBox_FolderRename
+            // 
+            this.textBox_FolderRename.Location = new System.Drawing.Point(73, 22);
+            this.textBox_FolderRename.Name = "textBox_FolderRename";
+            this.textBox_FolderRename.Size = new System.Drawing.Size(277, 20);
+            this.textBox_FolderRename.TabIndex = 7;
             // 
             // liênHệToolStripMenuItem
             // 
@@ -412,6 +481,26 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(439, 23);
             this.progressBar.TabIndex = 5;
+            this.progressBar.Visible = false;
+            // 
+            // button_FolderRename
+            // 
+            this.button_FolderRename.Location = new System.Drawing.Point(355, 171);
+            this.button_FolderRename.Name = "button_FolderRename";
+            this.button_FolderRename.Size = new System.Drawing.Size(75, 36);
+            this.button_FolderRename.TabIndex = 15;
+            this.button_FolderRename.Text = "Folder";
+            this.button_FolderRename.UseVisualStyleBackColor = true;
+            this.button_FolderRename.Click += new System.EventHandler(this.button_FolderRename_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(9, 87);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(340, 130);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Optional (TODO)";
             // 
             // MainWindows
             // 
@@ -419,11 +508,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 325);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.groupBox_XML);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.buttonTools);
             this.Controls.Add(this.label_CurTime);
             this.Controls.Add(this.groupBox_RenamePDF);
+            this.Controls.Add(this.groupBox_XML);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -468,7 +557,6 @@
         private System.Windows.Forms.CheckBox checkBox_Buyer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox_RenamePDF;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem thôngTinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem liênHệToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -481,6 +569,16 @@
         private System.Windows.Forms.CheckBox checkBox_Seller2;
         private System.Windows.Forms.CheckBox checkBox_Buyer2;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button button_OpenRename;
+        private System.Windows.Forms.Label label_RenameFiles;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox_Rename;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button_BrowseRename;
+        private System.Windows.Forms.TextBox textBox_FolderRename;
+        private System.Windows.Forms.Button button_Rename;
+        private System.Windows.Forms.Button button_FolderRename;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 
